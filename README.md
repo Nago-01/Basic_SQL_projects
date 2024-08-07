@@ -1,6 +1,7 @@
 # Basic_SQL_projects
 
 #A - beginners_projects.sql
+
 These are simple beginners' tasks on SQL: 
 1. Publishing the personal details of all customers
 2. Publishing the number of different inventories in each store and grouping them according to stores.
@@ -12,6 +13,7 @@ These are simple beginners' tasks on SQL:
 8. Publishing the number of rentals done by each customer, from the highest number of rentals down to the lowest.
 
 #B - beginners_projects_2.sql
+
 These are basic tasks involved joining of tables:
 1. Publishing the inventory ID, store ID, titles and descriptions of films in the company's database.
 2. Publishing customers' IDs, personal details and addresses.
