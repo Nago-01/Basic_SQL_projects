@@ -66,4 +66,27 @@ FROM customer
         ON address.city_id = city.city_id
 	JOIN 
 		country
-        ON city.country_id = country.country_id
+        ON city.country_id = country.country_id;
+        
+
+
+
+SELECT -- PROJECT 5
+-- selecting the needed fields with customers details and the date of their order
+	
+	customers.contactFirstName,
+    	customers.contactLastName,
+    	orders.orderDate
+-- specifying the leftTable
+FROM customers
+-- joining the rightTable
+INNER JOIN orders
+	-- specifying their linking field
+	ON customers.customerNumber = orders.customerNumber
+-- joining the rightTable against itself with an alias "wild"
+JOIN
+	orders wild
+    -- specifying the value in the field of interest 
+    ON wild.orderNumber = 10110
+-- filtering out orders made after the date of the specified orderNumber
+WHERE wild.orderDate < orders.orderDate
