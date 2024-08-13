@@ -1,4 +1,4 @@
-# Basic_SQL_projects
+# Querying databases and filtering datasets
 
 #A - beginners_projects.sql
 
