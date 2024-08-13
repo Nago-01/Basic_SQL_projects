@@ -20,3 +20,4 @@ These are basic tasks involved joining of tables:
 3. Publishing customers' personal details and orders details based on status of their orders and city 
 4. Publishing customers' personal details and some of their social demographics according to the available data on the database. 
 5. Publishing customers' details and order dates for orders after an order number: 10110
+6. Publishing customers' personal details from more than two tables based on specific cities

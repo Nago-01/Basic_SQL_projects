@@ -89,4 +89,22 @@ JOIN
     -- specifying the value in the field of interest 
     ON wild.orderNumber = 10110
 -- filtering out orders made after the date of the specified orderNumber
-WHERE wild.orderDate < orders.orderDate
+WHERE wild.orderDate < orders.orderDate;
+
+
+SELECT -- PROJECT 6
+-- filtering cutomers personal details in specific cities
+-- selecting needed columns
+	customer.address_id,
+    customer.first_name,
+    customer.last_name,
+    address.address,
+    city.city
+FROM customer
+JOIN
+	address
+    ON customer.address_id = address.address_id
+JOIN
+	city
+	ON city.city_id = address.city_id
+WHERE city LIKE "a%" -- filtering cities using wildcard
