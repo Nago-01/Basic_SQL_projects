@@ -107,4 +107,32 @@ JOIN
 JOIN
 	city
 	ON city.city_id = address.city_id
-WHERE city LIKE "a%" -- filtering cities using wildcard
+WHERE city LIKE "a%"; -- filtering cities using wildcard
+
+
+
+SELECT -- PROJECT 7
+-- combining two tables which are believed to shares duplicate values in some rows based on selected fields in the database: ispor
+-- to avoid duplication, UNION operator will be used
+	first_name,
+    last_name,
+    other_names
+FROM(
+	-- merging the two tables and removing the duplicates 
+	SELECT 
+		first_name,
+		last_name,
+		other_names
+	FROM finalists
+    UNION -- this merges the tables and removes duplicates
+    SELECT
+		first_name,
+		last_name,
+		other_names
+	FROM fifth_year
+) AS Unique_names -- assigning an alias to the outcome
+ORDER BY 
+-- sorting the groups based on how we want the result to be 
+	first_name,
+    last_name,
+    other_names

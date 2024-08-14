@@ -21,3 +21,4 @@ These are basic tasks involved joining of tables:
 4. Publishing customers' personal details and some of their social demographics according to the available data on the database. 
 5. Publishing customers' details and order dates for orders after an order number: 10110
 6. Publishing customers' personal details from more than two tables based on specific cities
+7. Publishing details of members of an organisation from different tables in their database but avoid duplication of any sort
