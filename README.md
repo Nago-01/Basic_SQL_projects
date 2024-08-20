@@ -1,8 +1,7 @@
 # Querying databases and filtering datasets
 
-#A - beginners_projects.sql
+#A - inventory_review.sql
 
-These are simple beginners' tasks on SQL: 
 1. Publishing the personal details of all customers
 2. Publishing the number of different inventories in each store and grouping them according to stores.
 3. Checking the number of active customers in each available store.
@@ -12,9 +11,8 @@ These are simple beginners' tasks on SQL:
 7. Publishing the average and maximum payment available on the company database.
 8. Publishing the number of rentals done by each customer, from the highest number of rentals down to the lowest.
 
-#B - beginners_projects_2.sql
+#B - staff_review.sql
 
-These are basic tasks involved joining of tables:
 1. Publishing the inventory ID, store ID, titles and descriptions of films in the company's database.
 2. Publishing customers' IDs, personal details and addresses.
 3. Publishing customers' personal details and orders details based on status of their orders and city 
@@ -24,7 +22,7 @@ These are basic tasks involved joining of tables:
 7. Publishing details of members of an organisation from different tables in their database but avoid duplication of any sort
 
 
-#C - beginners_projects_3.sql
+#C - acquisition_report.sql
 
 These are requests from a client to give insight for decision-making in his new acquisition:
 1. My partner and I want to come by each of the stores in person and meet the managers. Please send over the managers’ names at each store, with the full address of each property (street address, district, city, and country).
