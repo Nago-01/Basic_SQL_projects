@@ -7,17 +7,18 @@ of each property (street address, district, city, and country please).
 SELECT -- Project 1
 	staff.first_name AS "First Name",
     staff.last_name AS "Last Name",
-    -- staff.store_id AS "Store ID",
     address.address AS "Street Address",
     address.district AS "District",
     city.city AS "City",
-    country.country AS "Country"    
-FROM staff
-	JOIN address
-		ON staff.address_id = address.address_id
-	JOIN city
+    country.country AS "Country"
+FROM store
+	LEFT JOIN staff
+		ON store.manager_staff_id = staff.staff_id
+	LEFT JOIN address
+		ON store.address_id = address.address_id
+	LEFT JOIN city
 		ON address.city_id = city.city_id
-	JOIN country
+	LEFT JOIN country
 		ON city.country_id = country.country_id;
         
 
@@ -35,7 +36,7 @@ SELECT -- Project 2
     film.rental_rate AS "Rental rate",
     film.replacement_cost AS "Replacement cost"
 FROM film
-	JOIN inventory
+	LEFT JOIN inventory
 		ON film.film_id = inventory.film_id;
 
 
@@ -45,16 +46,13 @@ of your inventory. We would like to know how many inventory items you have with 
 */
 
 SELECT DISTINCT -- Project 3
-	store.store_id AS "Store",
+	inventory.store_id AS "Store",
 	film.rating AS "Rating",
 	COUNT(film.film_id) AS "Number of Inventory"
-FROM film
-	JOIN inventory
+FROM inventory
+	LEFT JOIN film
 		ON film.film_id = inventory.film_id
-	JOIN store
-		ON inventory.store_id = store.store_id
-GROUP BY film.rating, store.store_id
-ORDER BY store.store_id;
+GROUP BY film.rating, inventory.store_id;
 
 
 /* 
@@ -65,22 +63,21 @@ sliced by store and film category.
 */ 
 
 SELECT -- Project 4
-	store.store_id AS "Store ID",
+	inventory.store_id AS "Store ID",
     category.name AS "Category",
-    COUNT(film.film_id) AS "Number of Films",
+    COUNT(inventory.inventory_id) AS "Number of Films",
     AVG(film.replacement_cost) AS "Avg Replacement Cost",
     SUM(film.replacement_cost) AS "Total Replacement"
-FROM film
-	JOIN film_category
+FROM inventory
+	LEFT JOIN film
+		ON inventory.film_id = film.film_id
+	LEFT JOIN film_category
 		ON film.film_id = film_category.film_id
-	JOIN category
+	LEFT JOIN category
 		ON film_category.category_id = category.category_id
-	JOIN inventory
-		ON film.film_id = inventory.film_id
-	JOIN store
-		ON inventory.store_id = store.store_id
 GROUP BY
-	store.store_id, category.name;
+	inventory.store_id, category.name
+ORDER BY SUM(film.replacement_cost) DESC;
 
 
 /*
@@ -101,11 +98,11 @@ SELECT -- Project 5
         ELSE " "
         END AS Status
 FROM customer
-	JOIN address
+	LEFT JOIN address
 		ON customer.address_id = address.address_id
-	JOIN city
+	LEFT JOIN city
 		ON address.city_id = city.city_id
-	JOIN country
+	LEFT JOIN country
 		ON city.country_id = country.country_id;
 	
 
@@ -123,10 +120,10 @@ SELECT -- Project 6
     COUNT(rental.rental_id) "Total Lifetime Rentals",
     SUM(payment.amount) "Total payments"
 FROM customer
-	JOIN rental
+	LEFT JOIN rental
 		ON customer.customer_id = rental.customer_id
-	JOIN payment
-		ON customer.customer_id = payment.customer_id
+	LEFT JOIN payment
+		ON rental.rental_id = payment.rental_id
 GROUP BY 
 	customer.first_name, customer.last_name
 ORDER BY 
