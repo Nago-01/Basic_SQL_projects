@@ -7,7 +7,7 @@ of each property (street address, district, city, and country please).
 SELECT -- Project 1
 	staff.first_name AS "First Name",
     staff.last_name AS "Last Name",
-    staff.store_id AS "Store ID",
+    -- staff.store_id AS "Store ID",
     address.address AS "Street Address",
     address.district AS "District",
     city.city AS "City",
@@ -45,9 +45,9 @@ of your inventory. We would like to know how many inventory items you have with 
 */
 
 SELECT DISTINCT -- Project 3
+	store.store_id AS "Store",
 	film.rating AS "Rating",
-	COUNT(film.film_id) AS "Number of Inventory",
-    store.store_id AS "Store"
+	COUNT(film.film_id) AS "Number of Inventory"
 FROM film
 	JOIN inventory
 		ON film.film_id = inventory.film_id
@@ -118,7 +118,8 @@ see this ordered on total lifetime value, with the most valuable customers at th
 */
 
 SELECT -- Project 6
-	CONCAT(customer.first_name, ' ', customer.last_name) "Names of Customers",
+	customer.first_name "First Name",
+    customer.last_name "Last Name",
     COUNT(rental.rental_id) "Total Lifetime Rentals",
     SUM(payment.amount) "Total payments"
 FROM customer
