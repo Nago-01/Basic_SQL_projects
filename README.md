@@ -33,3 +33,14 @@ These are requests from a client to give insight for decision-making in his new 
 6. We would like to understand how much your customers are spending with you, and also to know who your most valuable customers are. Please pull together a list of customer names, their total lifetime rentals, and the sum of all payments you have collected from them. It would be great to see this ordered on total lifetime value, with the most valuable customers at the top of the list.
 7. My partner and I would like to get to know your board of advisors and any current investors. Could you please provide a list of advisor and investor names in one table? Could you please note whether they are an investor or an advisor, and for the investors, it would be good to include which company they work with. 
 8. We're interested in how well you have covered the most-awarded actors. Of all the actors with three types of awards, for what % of them do we carry a film? And how about for actors with two types of awards? Same questions. Finally, how about actors with just one award?
+
+
+
+#D - data_science_jobs_report.sql
+
+This gives an insight into how data science jobs are distributed based:
+1. rating
+2. duration on the job search platform
+3. hiring companies and number of workers
+4. location of workers and their numbers ordered from the most to the least
+5. salaries above 100k
